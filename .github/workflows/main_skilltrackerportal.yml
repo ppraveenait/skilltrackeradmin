@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'skilltrackerportal'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_890B80EE4F984BAEA67E8895B0AB6FB3 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0DAFB4B277134BA4A1DF4B1F5C4FC9ED }}
           package: .
