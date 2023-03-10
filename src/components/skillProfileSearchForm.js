@@ -6,8 +6,6 @@ function SkillProfileSearchForm() {
     const [associateId, setAssociateId] = useState('');
     const [skill, setSkill] = useState('');
     let [responseData, setResponseData] = React.useState('')
-    let [technicalSkills, setTechnicalSkills] = React.useState('')
-    let [nonTechSkills, setNonTechSkills] = React.useState('')
 
     const handleInputChange = (e) => {
         const { id, value } = e.target;
