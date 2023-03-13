@@ -33,7 +33,7 @@ function SkillProfileSearchForm() {
             pathParam = pathParam + skill;
         }
         console.log(pathParam);
-        const serviceUrl = 'http://172.18.18.57:8082/skill-tracker/api/v1/admin/' + pathParam;
+        const serviceUrl = 'https://querypatterensvc.azurewebsites.net/admin' + pathParam;
         console.log(serviceUrl);
         fetch(serviceUrl)
             .then(response => {
