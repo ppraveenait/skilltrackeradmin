@@ -33,7 +33,8 @@ function SkillProfileSearchForm() {
             pathParam = pathParam + skill;
         }
         console.log(pathParam);
-        const serviceUrl = 'https://querypatterensvc.azurewebsites.net/admin' + pathParam;
+        console.log(Environment.GetEnvironmentVariable("SKILLTRACKER_API_URL"))
+        const serviceUrl = 'https://querypatterensvc.azurewebsites.net/admin/' + pathParam;
         console.log(serviceUrl);
         fetch(serviceUrl)
             .then(response => {
