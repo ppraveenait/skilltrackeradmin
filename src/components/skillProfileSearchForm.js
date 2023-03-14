@@ -34,7 +34,7 @@ function SkillProfileSearchForm() {
             pathParam = pathParam + skill;
         }
         //const serviceUrl = 'https://querypatterensvc.azurewebsites.net/admin/' + pathParam;
-        const serviceUrl = appConfigData.local.SKILLTRACKER_API_URL + pathParam;
+        const serviceUrl = appConfigData.development.SKILLTRACKER_API_URL + pathParam;
         console.log(serviceUrl);
         fetch(serviceUrl)
             .then(response => {
