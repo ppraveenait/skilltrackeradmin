@@ -1,0 +1,9 @@
+{
+    "local" : {
+        "SKILLTRACKER_API_URL" : "http://localhost:8082/admin/"
+    },
+    "development" : {
+        "SKILLTRACKER_API_URL" : "https://querypatterensvc.azurewebsites.net/admin/"
+    }
+    
+}

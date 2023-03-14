@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../style.css';
+import * as appConfigData from './../config/appconfig.json';
 
 function SkillProfileSearchForm() {
     const [name, setName] = useState('');
@@ -32,17 +33,16 @@ function SkillProfileSearchForm() {
         } else {
             pathParam = pathParam + skill;
         }
-        console.log(pathParam);
-        console.log(process.env.SKILLTRACKER_API_URL);
-        const serviceUrl = 'https://querypatterensvc.azurewebsites.net/admin/' + pathParam;
+        //const serviceUrl = 'https://querypatterensvc.azurewebsites.net/admin/' + pathParam;
+        const serviceUrl = appConfigData.local.SKILLTRACKER_API_URL + pathParam;
         console.log(serviceUrl);
         fetch(serviceUrl)
             .then(response => {
                 return response.json()
             })
             .then(data => {
-                console.log(data)
-                setResponseData(data)
+                console.log(data.result)
+                setResponseData(data.result);
             })
     }
 
@@ -52,7 +52,7 @@ function SkillProfileSearchForm() {
             <div className="form-body">
                 <table className="search">
                     <tr>
-                        <th colspan="2">Search Value</th>
+                        <th colSpan="2">Search Value</th>
                     </tr>
                     <tr>
                         <td><div className="name">
@@ -60,7 +60,7 @@ function SkillProfileSearchForm() {
                             <input className="form__input" type="text" value={name} onChange={(e) => handleInputChange(e)} id="name" placeholder="Assicate Name" />
                         </div></td>
                         <td><div className="name">
-                            <button onClick={() => handleSubmit("name")} type="submit" class="btn">NAME</button>
+                            <button onClick={() => handleSubmit("name")} type="submit" className="btn">NAME</button>
 
                         </div></td>
                     </tr>
@@ -71,7 +71,7 @@ function SkillProfileSearchForm() {
                         </div></td>
 
                         <td> <div className="associateId">
-                            <button onClick={() => handleSubmit("associateId")} type="submit" class="btn">ASSOCIATE ID</button>
+                            <button onClick={() => handleSubmit("associateId")} type="submit" className="btn">ASSOCIATE ID</button>
                         </div></td>
 
                     </tr>
@@ -82,7 +82,7 @@ function SkillProfileSearchForm() {
                         </div></td>
 
                         <td><div className="skill">
-                            <button onClick={() => handleSubmit("skillName")} type="submit" class="btn">SKILL</button>
+                            <button onClick={() => handleSubmit("skillName")} type="submit" className="btn">SKILL</button>
 
                         </div></td>
                     </tr>
@@ -96,7 +96,7 @@ function SkillProfileSearchForm() {
                                 <td width="500px">
                                     <table >
                                         <tr>
-                                            <th colspan="2">Profile Details</th>
+                                            <th colSpan="2">Profile Details</th>
                                         </tr>
                                         <tr>
                                             <th> Name  </th>
@@ -124,7 +124,7 @@ function SkillProfileSearchForm() {
                                 <td width="250px">
                                     <table>
                                         <tr>
-                                            <th colspan="2">Technical Details</th>
+                                            <th colSpan="2">Technical Details</th>
                                         </tr>
                                         {data.technicalSkills.length > 0 && data.technicalSkills.map((res) => {
                                             return (
@@ -139,7 +139,7 @@ function SkillProfileSearchForm() {
                                 <td width="250px">
                                     <table>
                                         <tr>
-                                            <th colspan="2">Non Technical Details</th>
+                                            <th colSpan="2">Non Technical Details</th>
                                         </tr>
                                         {data.nonTechnicalSkills.length > 0 && data.nonTechnicalSkills.map((res) => {
                                             return (
