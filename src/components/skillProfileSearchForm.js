@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../style.css';
-import * as appConfigData from './../config/appconfig.json';
+import appConfigData from './../config/appconfig.json';
 
 function SkillProfileSearchForm() {
     const [name, setName] = useState('');
